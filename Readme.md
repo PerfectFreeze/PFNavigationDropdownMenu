@@ -1,4 +1,6 @@
 # PFNavigationDropdownMenu
++[![Cocoapods](https://cocoapod-badges.herokuapp.com/v/PFNavigationDropdownMenu/badge.png)](http://cocoapods.org/?q=PFNavigationDropdownMenu)
+
 The Objective-C version of [BTNavigationDropdownMenu](https://github.com/PhamBaTho/BTNavigationDropdownMenu). Supports iOS 7.0+.
 
 ## Usage
