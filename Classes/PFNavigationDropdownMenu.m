@@ -195,6 +195,24 @@
     }
 }
 
+#pragma mark - Open/Close State
+- (void)openMenu
+{
+    self.isShown = YES;
+    [self showMenu];
+}
+
+- (void)closeMenu
+{
+    self.isShown = NO;
+    [self hideMenu];
+}
+
+- (BOOL)isOpen
+{
+    return [self isShown];
+}
+
 #pragma mark - Setters
 - (void)setCellHeight:(CGFloat)cellHeight
 {
