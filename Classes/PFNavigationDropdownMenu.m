@@ -216,7 +216,7 @@
 #pragma mark - Item Selection
 - (void)selectItemAtIndex:(NSUInteger)index
 {
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathWithIndex:index]
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]
                                 animated:NO
                           scrollPosition:UITableViewScrollPositionNone];
 }
