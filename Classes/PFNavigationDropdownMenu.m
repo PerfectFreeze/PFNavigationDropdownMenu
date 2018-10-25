@@ -65,7 +65,10 @@
         __weak typeof(self) weakSelf = self;
         self.tableView.selectRowAtIndexPathHandler = ^(NSUInteger indexPath){
             __strong typeof(weakSelf) strongSelf = weakSelf;
-            strongSelf.didSelectItemAtIndexHandler(indexPath);
+            if (strongSelf.didSelectItemAtIndexHandler)
+            {
+                strongSelf.didSelectItemAtIndexHandler(indexPath);
+            }
             [strongSelf setMenuTitleText:items[indexPath]];
             [strongSelf hideMenu];
             strongSelf.isShown = NO;
