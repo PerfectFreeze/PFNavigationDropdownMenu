@@ -14,4 +14,8 @@
 @property (nonatomic, copy) void(^selectRowAtIndexPathHandler)(NSUInteger indexPath);
 
 - (instancetype)initWithFrame:(CGRect)frame items:(NSArray *)items configuration:(PFConfiguration *)configuration;
+
+// Setters
+- (void)selectIndex:(NSUInteger)index;
+
 @end

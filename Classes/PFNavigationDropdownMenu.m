@@ -216,9 +216,10 @@
 #pragma mark - Item Selection
 - (void)selectItemAtIndex:(NSUInteger)index
 {
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]
-                                animated:NO
-                          scrollPosition:UITableViewScrollPositionNone];
+    if (index >= self.items.count) {
+        index = self.items.count - 1;
+    }
+    [self.tableView selectIndex:index];
 }
 
 #pragma mark - Setters
