@@ -213,6 +213,14 @@
     return [self isShown];
 }
 
+#pragma mark - Item Selection
+- (void)selectItemAtIndex:(NSUInteger)index
+{
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathWithIndex:index]
+                                animated:NO
+                          scrollPosition:UITableViewScrollPositionNone];
+}
+
 #pragma mark - Setters
 - (void)setCellHeight:(CGFloat)cellHeight
 {

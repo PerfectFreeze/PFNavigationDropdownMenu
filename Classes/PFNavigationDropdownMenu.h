@@ -32,4 +32,7 @@
 - (void)closeMenu;
 - (BOOL)isOpen;
 
+// Item Selection
+- (void)selectItemAtIndex:(NSUInteger)index;
+
 @end
