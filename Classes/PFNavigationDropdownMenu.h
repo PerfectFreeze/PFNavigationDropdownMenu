@@ -26,4 +26,13 @@
                         title:(NSString *)title
                         items:(NSArray *)items
                 containerView:(UIView *)containerView;
+
+// Open/Close State
+- (void)openMenu;
+- (void)closeMenu;
+- (BOOL)isOpen;
+
+// Item Selection
+- (void)selectItemAtIndex:(NSUInteger)index;
+
 @end

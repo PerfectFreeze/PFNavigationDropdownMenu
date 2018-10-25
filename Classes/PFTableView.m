@@ -35,6 +35,14 @@
     return self;
 }
 
+#pragma mark - Setters
+- (void)selectIndex:(NSUInteger)index
+{
+    self.selectedIndexPath = index;
+    self.selectRowAtIndexPathHandler(index);
+    [self reloadData];
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -73,9 +81,7 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.selectedIndexPath = indexPath.row;
-    self.selectRowAtIndexPathHandler(indexPath.row);
-    [self reloadData];
+    [self selectIndex:indexPath.row];
     PFTableViewCell *cell = (PFTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     cell.contentView.backgroundColor = self.configuration.cellSelectionColor;
 }

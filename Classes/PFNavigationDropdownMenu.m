@@ -65,7 +65,10 @@
         __weak typeof(self) weakSelf = self;
         self.tableView.selectRowAtIndexPathHandler = ^(NSUInteger indexPath){
             __strong typeof(weakSelf) strongSelf = weakSelf;
-            strongSelf.didSelectItemAtIndexHandler(indexPath);
+            if (strongSelf.didSelectItemAtIndexHandler)
+            {
+                strongSelf.didSelectItemAtIndexHandler(indexPath);
+            }
             [strongSelf setMenuTitleText:items[indexPath]];
             [strongSelf hideMenu];
             strongSelf.isShown = NO;
@@ -193,6 +196,33 @@
     } else {
         [self hideMenu];
     }
+}
+
+#pragma mark - Open/Close State
+- (void)openMenu
+{
+    self.isShown = YES;
+    [self showMenu];
+}
+
+- (void)closeMenu
+{
+    self.isShown = NO;
+    [self hideMenu];
+}
+
+- (BOOL)isOpen
+{
+    return [self isShown];
+}
+
+#pragma mark - Item Selection
+- (void)selectItemAtIndex:(NSUInteger)index
+{
+    if (index >= self.items.count) {
+        index = self.items.count - 1;
+    }
+    [self.tableView selectIndex:index];
 }
 
 #pragma mark - Setters
